@@ -1,3 +1,6 @@
+/* pulled from source code:
+https://github.com/stephane-monnot/react-vertical-timeline */
+
 .vertical-timeline-element {
   position: relative;
   margin: 2em 0;
