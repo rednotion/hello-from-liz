@@ -27,7 +27,7 @@ https://github.com/stephane-monnot/react-vertical-timeline */
   left: 18px;
   height: 100%;
   width: 3px;
-  background: white;
+  background: #ff5722; /* or white */
 }
 
 @media only screen and (min-width: 1170px) {

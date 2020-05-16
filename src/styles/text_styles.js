@@ -12,7 +12,6 @@ const T = withStyles((theme) => ({
   h1: {
   	fontFamily: "Rubik Mono One",
     fontSize: 20,
-    paddingBottom: 10
   }, 
   highlight: {
   	fontFamily: "IBM Plex Mono",

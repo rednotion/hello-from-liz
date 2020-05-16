@@ -39,7 +39,7 @@ https://github.com/stephane-monnot/react-vertical-timeline */
   height: 40px;
   border-radius: 50%;
   /* this is the icon border */
-  box-shadow: 0 0 0 3px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0 3px #ff5722, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
 }
 .vertical-timeline-element-icon svg {
   display: block;
@@ -202,8 +202,8 @@ https://github.com/stephane-monnot/react-vertical-timeline */
     font-size: 1.25rem;
   }
   .vertical-timeline-element-content p {
-    font-size: 16px;
-    font-size: 1rem;
+    font-size: 13px;
+    /* font-size: 1rem; */
   }
   .vertical-timeline-element-content .vertical-timeline-element-date {
     font-size: 14px;
