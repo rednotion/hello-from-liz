@@ -9,11 +9,12 @@ import { useStyles } from '@material-ui/core/styles'
 import { T } from './styles/text_styles.js';
 import { OutlineButton } from './components/OutlineButton.js';
 import InlineLink from './styles/InlineLink.js';
+import WorkHistory from './components/WorkHistory.js';
 
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import FaceIcon from '@material-ui/icons/Face';
-import WorkIcon from '@material-ui/icons/Work';
+import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
 import FlareIcon from '@material-ui/icons/Flare';
 import AddIcCallIcon from '@material-ui/icons/AddIcCall';
 
@@ -22,6 +23,7 @@ import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timel
 import "./styles/timeline_style.css";
 
 import { events } from './data/events.js'
+import { links } from './data/links.js'
 
 const defaultBackground = "#212b30"
 
@@ -54,12 +56,20 @@ function getIcon(name) {
     return (<FlareIcon />)
   } else if (name == "face") {
     return (<FaceIcon />)
-  } else if (name == "AddIcCall") {
+  } else if (name == "call") {
     return (<AddIcCallIcon />)
   } else {
-    return (<WorkIcon/>)
+    return (<WorkOutlineIcon/>)
   }
   
+}
+
+function getEvent(text) {
+  if (text == 'get_work') {
+    return <WorkHistory/>
+  } else {
+    return <T variant="body1" dangerouslySetInnerHTML={{ __html: text}} />
+  }
 }
 
 
@@ -75,7 +85,7 @@ function App() {
         <T variant="subtitle">
           I've had the pleasure of living in Durham (NC), Boston and Washington D.C. during the past 4 years. I studied Economics at <InlineLink>Duke</InlineLink> and Business Analytics at <InlineLink>MIT</InlineLink>. I've also worked at <InlineLink>2nd Order Solutions</InlineLink> and <InlineLink>BCG GAMMA</InlineLink>.
           <p/>
-          I'm currently back home in Singapore, working with <InlineLink>GovTech</InlineLink>. I focus on <b>end-to-end development of AI products</b>: from problem formulation, to modelling, to deployment and impact evaluation.
+          I'm currently back home in Singapore, working with <InlineLink href={links["govtech"]} target="_blank" rel="noopener noreferrer">GovTech</InlineLink>. I focus on <b>end-to-end development of AI products</b>: from problem formulation, to modelling, to deployment and impact evaluation.
         </T>
         <OutlineButton size="small" variant="outlined" style={{marginTop:50}}>Resume</OutlineButton>
         <p/>
@@ -88,11 +98,12 @@ function App() {
         </div>
         <T variant="subtitle" st>
           <div style={{display: 'flex', alignItems: 'center', marginBottom: 5}}>
-            <LinkedInIcon style={{fontSize:18}}/>&nbsp;<InlineLink>LinkedIn</InlineLink>
+            <LinkedInIcon style={{fontSize:18}}/>&nbsp;
+            <InlineLink href={links["linkedin"]} target="_blank" rel="noopener noreferrer">LinkedIn</InlineLink>
           </div>
           <div style={{display: 'flex', alignItems: 'center'}}>
             <GitHubIcon style={{fontSize:18}}/>&nbsp;
-            <InlineLink>GitHub</InlineLink>
+            <InlineLink href={links["github"]} target="_blank" rel="noopener noreferrer">GitHub</InlineLink>
           </div>
         </T>
         </div>
@@ -109,10 +120,7 @@ function App() {
             icon={getIcon(item.icon)}
           >
             <T variant="h1">{item.title}</T>
-            <b>{item.location}</b>
-            <p>
-            <T variant="body1" dangerouslySetInnerHTML={{ __html: item.event}} />
-            </p>
+            { getEvent(item.event) }
           </VerticalTimelineElement>
           )
         )}
@@ -121,5 +129,7 @@ function App() {
     </div>
   )
 }
+
+
 
 export default App;

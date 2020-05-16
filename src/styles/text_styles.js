@@ -1,6 +1,6 @@
 import Typography from '@material-ui/core/Typography';
 
-import { blueGrey, pink, deepOrange } from '@material-ui/core/colors';
+import { blueGrey, deepOrange, lime } from '@material-ui/core/colors';
 import { withStyles } from '@material-ui/core/styles'
 
 const T = withStyles((theme) => ({
@@ -12,6 +12,12 @@ const T = withStyles((theme) => ({
   h1: {
   	fontFamily: "Rubik Mono One",
     fontSize: 20,
+  }, 
+  jobtitle: {
+    fontFamily: "IBM Plex Mono",
+    fontSize: 18,
+    color: lime["A200"],
+    fontWeight: 400,
   }, 
   highlight: {
   	fontFamily: "IBM Plex Mono",
