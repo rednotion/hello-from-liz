@@ -36,12 +36,12 @@ const sidebarStyle = {
   top: 0, 
   left: 0,
   height: "100%",
-  width: 300,
+  width: "35%",
 
 }
 
 const mainContentStyle = {
-  marginLeft: 360,
+  marginLeft: "40%"
 }
 
 const timelineContentStyle = {
@@ -80,7 +80,7 @@ function App() {
       <div style={{position: "relative", top: "5%"}}>
         <T variant="subtitle">Hello there! My name is</T>
         <T variant="h1">elizabeth lim</T>
-        <T variant="highlight">I'm a data scientist trying to do things. </T>
+        <T variant="highlight">and I'm a data scientist ???</T>
         <p/>
         <T variant="subtitle">
           I've had the pleasure of living in Durham (NC), Boston and Washington D.C. during the past 4 years. I studied Economics at <InlineLink>Duke</InlineLink> and Business Analytics at <InlineLink>MIT</InlineLink>. I've also worked at <InlineLink>2nd Order Solutions</InlineLink> and <InlineLink>BCG GAMMA</InlineLink>.
