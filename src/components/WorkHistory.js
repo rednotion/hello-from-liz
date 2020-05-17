@@ -7,7 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
-import { lime } from '@material-ui/core/colors';
+import { lime, blueGrey } from '@material-ui/core/colors';
 import { T } from '../styles/text_styles.js';
 
 function TabPanel(props) {
@@ -45,23 +45,33 @@ function a11yProps(index) {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
+    //display: 'flex',
     marginTop: 10,
     height: 'auto',
   },
   tabs: {
-    borderRight: `1px solid ${theme.palette.divider}`,
+    borderBottom: `2px solid ${theme.palette.divider}`,
     indicator: {
       backgroundColor: "#fff", 
-    }
+    },
+    height: "100%",
+    minHeight: "10px",
+    padding: 0,
   },
   tab: {
     fontFamily: "IBM Plex Mono",
-    minWidth: "50px"
+    minheight: "10px",
+    height: "100%",
+    padding: 0
   },
   description: {
     fontFamily: "Open Sans",
     fontSize: 20,
+  },
+  tabpanel: {
+    '& .MuiBox-root': {
+        paddingLeft: '20px',
+    },
   }
 }));
 
@@ -76,9 +86,9 @@ export default function WorkHistory() {
 
   return (
     <div className={classes.root}>
-      <div style={{width: "15%", minWidth: "50px", maxWidth: "150px", height: "100%"}}>
+      <div style={{width: "100%", height: "50px"}}>
         <Tabs
-          orientation="vertical"
+          // orientation="vertical"
           variant="fullWidth"
           value={value}
           onChange={handleChange}
@@ -92,18 +102,27 @@ export default function WorkHistory() {
         </Tabs>
       </div>
 
-      <div style={{height: "100%", flexGrow:1}}>
-        <TabPanel value={value} index={0}>
+      <div style={{height: "100%", flexGrow: 1, width: "100%"}}>
+        <TabPanel className={classes.tabpanel} value={value} index={0}>
           <T variant="jobtitle">GovTech</T>
-          <T>Some text</T>
         </TabPanel>
-        <TabPanel value={value} index={1}>
+
+        <TabPanel className={classes.tabpanel} value={value} index={1}>
           <T variant="jobtitle">BCG Gamma</T>
-          <T>Some text</T>
+          <T><ul>
+          <li>Project focused on customer churn and retention for a large direct selling firm</li>
+          <li>Scoped two different customer retention models and built tree-based predictors of customer progression and development</li>
+          <li>Built large-scale database for the client with over 600 variables using SQL. Ensured that database was compatible for use with model development and use</li>
+          </ul></T>
         </TabPanel>
-        <TabPanel value={value} index={2}>
+
+        <TabPanel className={classes.tabpanel} value={value} index={2}>
           <T variant="jobtitle">2nd Order Solutions</T>
-          <T>Some text</T>
+          <T><ul style={{marginBottom: 0, paddingBottom: 0}}>
+          <li>Analyzed consumer loan performance metrics by location to recommend expanding bank’s direct mailing footprint for estimated >10% increase revenue; presented to Head of Credit Policy</li>
+          <li>Formulated metrics evaluating customers’ ability to repay loans to assess and ensure compliance with state requirements</li>
+          <li>Calculated alternative estimates of a customer’s lifetime value by restructuring long-term account data (57K accounts, 5 years) into forecast revenue streams</li>
+          </ul></T>
         </TabPanel>
       </div>
     </div>

@@ -3,10 +3,11 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 
+import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
+
 import { blueGrey, deepOrange } from '@material-ui/core/colors';
 import { useStyles } from '@material-ui/core/styles'
 
-import { T } from './styles/text_styles.js';
 import { OutlineButton } from './components/OutlineButton.js';
 import InlineLink from './styles/InlineLink.js';
 import WorkHistory from './components/WorkHistory.js';
@@ -18,10 +19,11 @@ import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
 import FlareIcon from '@material-ui/icons/Flare';
 import AddIcCallIcon from '@material-ui/icons/AddIcCall';
 
-import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
-//import "react-vertical-timeline-component/style.min.css";
+// css
 import "./styles/timeline_style.css";
+import './styles/main.css';
 
+// data
 import { events } from './data/events.js'
 import { links } from './data/links.js'
 
@@ -68,7 +70,7 @@ function getEvent(text) {
   if (text == 'get_work') {
     return <WorkHistory/>
   } else {
-    return <T variant="body1" dangerouslySetInnerHTML={{ __html: text}} />
+    return <div class="content" dangerouslySetInnerHTML={{ __html: text}} />
   }
 }
 
@@ -77,35 +79,37 @@ function App() {
   return (
     <div>
     <div style={sidebarStyle}>
-      <div style={{position: "relative", top: "5%"}}>
-        <T variant="subtitle">Hello there! My name is</T>
-        <T variant="h1">elizabeth lim</T>
-        <T variant="highlight">and I'm a data scientist ???</T>
+      <div class="sidebar" style={{position: "relative", top: "5%"}}>
+        <code>Hello there! My name is</code>
+        <h1>elizabeth lim</h1>
+        <code><b>and I'm a data scientist.</b></code>
         <p/>
-        <T variant="subtitle">
-          I've had the pleasure of living in Durham (NC), Boston and Washington D.C. during the past 4 years. I studied Economics at <InlineLink>Duke</InlineLink> and Business Analytics at <InlineLink>MIT</InlineLink>. I've also worked at <InlineLink>2nd Order Solutions</InlineLink> and <InlineLink>BCG GAMMA</InlineLink>.
-          <p/>
-          I'm currently back home in Singapore, working with <InlineLink href={links["govtech"]} target="_blank" rel="noopener noreferrer">GovTech</InlineLink>. I focus on <b>end-to-end development of AI products</b>: from problem formulation, to modelling, to deployment and impact evaluation.
-        </T>
+        I've had the pleasure of living in Durham (NC), Boston and Washington D.C. during the past 4 years. 
+        I studied Economics at <InlineLink>Duke</InlineLink> and Business Analytics at <InlineLink>MIT</InlineLink>. 
+        I've also worked at <InlineLink>2nd Order Solutions</InlineLink> and <InlineLink>BCG GAMMA</InlineLink>.
+        <p/>
+        I'm currently back home in Singapore, working with <InlineLink href={links["govtech"]} target="_blank" rel="noopener noreferrer">GovTech</InlineLink>. 
+        I focus on <b>end-to-end development of AI products</b>: from problem formulation, to modelling, to deployment and impact evaluation.
+        <br/>
+
         <OutlineButton size="small" variant="outlined" style={{marginTop:50}}>Resume</OutlineButton>
+
         <p/>
-        <div style={{position: "relative", marginTop: 20, marginBottom: 50}}>
-          <img 
-            src={require("./profile_pic.png")} 
-            style={{width: "90%", maxWidth: "200px", boxShadow: "7px 7px 0px 1px #ff5722"}}
-          />
-          <div style={{position: "absolute", top: "30%", left: "40%", backgroundColor: deepOrange[500], fontFamily: "IBM Plex Mono", fontSize: 11, color: "#000"}}><i><b>"cheers!"</b></i></div>
+
+        <div class="sidebar-image-container">
+          <img src={require("./profile_pic.png")} />
+          <caption><i>"cheers!"</i></caption>
         </div>
-        <T variant="subtitle" st>
-          <div style={{display: 'flex', alignItems: 'center', marginBottom: 5}}>
-            <LinkedInIcon style={{fontSize:18}}/>&nbsp;
-            <InlineLink href={links["linkedin"]} target="_blank" rel="noopener noreferrer">LinkedIn</InlineLink>
-          </div>
-          <div style={{display: 'flex', alignItems: 'center'}}>
-            <GitHubIcon style={{fontSize:18}}/>&nbsp;
-            <InlineLink href={links["github"]} target="_blank" rel="noopener noreferrer">GitHub</InlineLink>
-          </div>
-        </T>
+
+        <div class="sidebar-icon">
+          <LinkedInIcon style={{fontSize:18}}/>&nbsp;
+          <InlineLink href={links["linkedin"]} target="_blank" rel="noopener noreferrer">LinkedIn</InlineLink>
+        </div>
+        <div class="sidebar-icon">
+          <GitHubIcon style={{fontSize:18}}/>&nbsp;
+          <InlineLink href={links["github"]} target="_blank" rel="noopener noreferrer">GitHub</InlineLink>
+        </div>
+
         </div>
     </div>
 
@@ -119,7 +123,7 @@ function App() {
             iconStyle={{ background: defaultBackground , color: "#fff"}}
             icon={getIcon(item.icon)}
           >
-            <T variant="h1">{item.title}</T>
+            <div class="content"><h1>{item.title}</h1></div>
             { getEvent(item.event) }
           </VerticalTimelineElement>
           )

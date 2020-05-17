@@ -1,6 +1,6 @@
 import Button from '@material-ui/core/Button';
 
-import { blueGrey, pink, deepOrange } from '@material-ui/core/colors';
+import { blueGrey, lime } from '@material-ui/core/colors';
 import { withStyles } from '@material-ui/core/styles'
 
 
@@ -14,7 +14,9 @@ const OutlineButton = withStyles((theme) => ({
     textTransform: "uppercase",
     fontWeight: 300,
     '&:hover': {
-    	backgroundColor: blueGrey[700],
+    	borderColor: lime["A200"],
+        color: lime["A200"],
+        backgroundColor: blueGrey[700],
     }
   },
 }))(Button)

@@ -10,7 +10,7 @@ const highlight = lime["A200"]
 const InlineLink = styled.a`
   font-family: 'IBM Plex Mono';
   color: ${highlight};
-  font-weight: 400;
+  font-weight: 300;
   display: inline-block;
   text-decoration: none;
   text-decoration-skip-ink: auto;

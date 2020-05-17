@@ -140,6 +140,7 @@ https://github.com/stephane-monnot/react-vertical-timeline */
   background: white;
   border-radius: 0.25em;
   padding: 1em;
+  padding-bottom: 0px;
   /* this is drop shadow on content */
   /* box-shadow: 0 3px 0 #ddd; */
   /* box-shadow: 4px 4px 6px #151b1f; */
