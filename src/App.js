@@ -18,6 +18,7 @@ import FaceIcon from '@material-ui/icons/Face';
 import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
 import FlareIcon from '@material-ui/icons/Flare';
 import AddIcCallIcon from '@material-ui/icons/AddIcCall';
+import MailIcon from '@material-ui/icons/Mail';
 
 // css
 import "./styles/timeline_style.css";
@@ -108,6 +109,10 @@ function App() {
         <div class="sidebar-icon">
           <GitHubIcon style={{fontSize:18}}/>&nbsp;
           <InlineLink href={links["github"]} target="_blank" rel="noopener noreferrer">GitHub</InlineLink>
+        </div>
+        <div class="sidebar-icon">
+          <MailIcon style={{fontSize:18}}/>&nbsp;
+          <InlineLink href={links["mail"]} target="_blank" rel="noopener noreferrer">Email</InlineLink>
         </div>
 
         </div>

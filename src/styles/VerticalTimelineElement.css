@@ -144,6 +144,9 @@ https://github.com/stephane-monnot/react-vertical-timeline */
   /* this is drop shadow on content */
   /* box-shadow: 0 3px 0 #ddd; */
   /* box-shadow: 4px 4px 6px #151b1f; */
+  /*HERE IS MY ATTEMPT TO MAKE IT FULL SCREEN*/
+  margin-top: 10em;
+  margin-bottom: 10em;
 }
 .vertical-timeline-element--no-children .vertical-timeline-element-content {
   background: transparent;
